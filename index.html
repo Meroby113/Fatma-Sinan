@@ -1,0 +1,1150 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0f1a" />
+  <meta name="description" content="Fatma Çoban & Sinan Şengür - 11.07.2026 Nikah, Kına & Düğün Davetiyesi" />
+  <title>Fatma & Sinan | 11.07.2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg0:#070914;
+      --bg1:#0b0f1a;
+      --paper: rgba(255,255,255,.08);
+      --card: rgba(255,255,255,.07);
+      --stroke: rgba(255,255,255,.14);
+      --text: rgba(255,255,255,.94);
+      --muted: rgba(255,255,255,.70);
+      --muted2: rgba(255,255,255,.55);
+      --gold: #f4d06f;
+      --rose: #ff6aa2;
+      --ivory: #fff7e8;
+      --white: #ffffff;
+      --shadow: 0 18px 55px rgba(0,0,0,.45);
+      --r: 22px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(255,255,255,.10), transparent 60%),
+        radial-gradient(900px 600px at 85% 20%, rgba(244,208,111,.18), transparent 60%),
+        radial-gradient(900px 600px at 15% 75%, rgba(255,106,162,.14), transparent 60%),
+        radial-gradient(1200px 800px at 80% 110%, rgba(255,255,255,.08), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    /* bokeh (wedding light vibe) */
+    .bokeh{
+      position:fixed;
+      inset:-120px;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.10), transparent 28%),
+        radial-gradient(circle at 72% 18%, rgba(255,255,255,.08), transparent 26%),
+        radial-gradient(circle at 86% 55%, rgba(244,208,111,.10), transparent 26%),
+        radial-gradient(circle at 22% 68%, rgba(255,106,162,.08), transparent 25%),
+        radial-gradient(circle at 55% 82%, rgba(255,255,255,.06), transparent 28%);
+      filter: blur(2px);
+      opacity:.9;
+      animation: drift 18s linear infinite;
+      mix-blend-mode: screen;
+    }
+    @keyframes drift { from{ transform:translate3d(0,0,0);} to{ transform:translate3d(60px,-30px,0);} }
+
+    /* subtle animated noise */
+    .noise{
+      pointer-events:none;
+      position:fixed;
+      inset:0;
+      opacity:.08;
+      mix-blend-mode:overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+      animation: grain 10s linear infinite;
+    }
+    @keyframes grain { from{ transform:translate3d(0,0,0);} to{ transform:translate3d(50px,-40px,0);} }
+
+    /* floating petals (lightweight) */
+    .petals{
+      pointer-events:none;
+      position:fixed;
+      inset:0;
+      overflow:hidden;
+      z-index: 3;
+      opacity:.55;
+    }
+    .petal{
+      position:absolute;
+      width: 14px; height: 10px;
+      border-radius: 14px 14px 14px 14px;
+      background: linear-gradient(90deg, rgba(255,255,255,.85), rgba(244,208,111,.55));
+      filter: blur(.2px);
+      transform: rotate(20deg);
+      animation: fall linear infinite;
+      box-shadow: 0 12px 30px rgba(0,0,0,.20);
+    }
+    @keyframes fall{
+      from{ transform: translateY(-20vh) rotate(0deg); opacity: 0; }
+      10%{ opacity:.9; }
+      to{ transform: translateY(120vh) rotate(360deg); opacity:.0; }
+    }
+
+    canvas#confetti{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index: 999;
+    }
+
+    .wrap{ max-width: 980px; margin:0 auto; padding: 16px 16px 84px; position:relative; z-index:4; }
+
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(7,9,20,.76), rgba(7,9,20,.40));
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .topbar-inner{
+      max-width:980px; margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 12px 16px;
+      gap:12px;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      font-size: 13px;
+      color: var(--muted);
+      white-space:nowrap;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: conic-gradient(from 140deg, var(--gold), var(--rose), #b9fff0, var(--white), var(--gold));
+      box-shadow: 0 0 18px rgba(244,208,111,.35);
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{ transform:scale(1); opacity:.9 } 50%{ transform:scale(1.22); opacity:1 } }
+
+    .nav{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .nav a{
+      text-decoration:none;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: .18s ease;
+    }
+    .nav a:hover{ color: var(--text); border-color: rgba(255,255,255,.16); background: rgba(255,255,255,.06); }
+
+    @media (max-width: 860px){
+      .nav{ display:none; }
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(520px 180px at 20% 0%, rgba(255,255,255,.12), transparent 60%),
+        radial-gradient(520px 180px at 80% 40%, rgba(244,208,111,.14), transparent 60%),
+        radial-gradient(520px 180px at 10% 90%, rgba(255,106,162,.10), transparent 60%);
+      opacity:.95;
+      pointer-events:none;
+    }
+    .card > *{ position:relative; }
+
+    .card-pad{ padding: 18px; }
+
+    .hero{
+      padding: 18px 0 10px;
+      position:relative;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.12fr .88fr;
+      gap: 14px;
+      align-items:stretch;
+    }
+    @media (max-width: 860px){ .hero-grid{ grid-template-columns: 1fr; } }
+
+    .names{
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(46px, 8vw, 84px);
+      line-height: .95;
+      margin: 10px 0 10px;
+      background: linear-gradient(90deg, rgba(255,255,255,.98), rgba(244,208,111,.98), rgba(255,255,255,.95));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      text-shadow: 0 0 44px rgba(255,255,255,.10);
+    }
+    .subtitle{
+      font-size: 14px;
+      color: var(--muted);
+      line-height:1.6;
+      margin: 0 0 14px;
+    }
+
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.14);
+      color: rgba(255,255,255,.88);
+      font-size: 13px;
+      width: fit-content;
+    }
+    .pill strong{ font-weight:800; }
+
+    .row{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      margin-top: 10px;
+    }
+
+    .cta-row{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 14px;
+    }
+    .btn{
+      appearance:none;
+      border:none;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      font-weight: 800;
+      font-size: 14px;
+      transition: transform .12s ease, filter .12s ease, background .18s ease, border-color .18s ease;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:active{ transform: translateY(1px) scale(.99); }
+    .btn-primary{
+      color: #0b0f1a;
+      background: linear-gradient(90deg, #ffffff, #fff2cf, var(--gold));
+      box-shadow: 0 12px 35px rgba(244,208,111,.16);
+    }
+    .btn-ghost{
+      color: rgba(255,255,255,.90);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.16);
+    }
+    .btn-ghost:hover{ background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.22); }
+
+    .countdown{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 10px;
+    }
+    .tile{
+      flex: 1 1 90px;
+      min-width: 86px;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.14);
+      text-align:center;
+    }
+    .num{ font-size: 22px; font-weight: 900; letter-spacing:.3px; }
+    .lab{ font-size: 12px; color: var(--muted2); margin-top:4px; }
+
+    .photoCard{
+      min-height: 430px;
+      display:flex;
+      align-items:flex-end;
+      background: #0a0d18;
+      position:relative;
+    }
+    @media (max-width: 860px){ .photoCard{ min-height: 360px; } }
+    .photoCard img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      position:absolute;
+      inset:0;
+      opacity:.92;
+      filter: contrast(1.05) saturate(1.05);
+      transform: scale(1.02);
+    }
+    .photoCard::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(7,9,20,.22), rgba(7,9,20,.88));
+    }
+    .photoBadge{
+      position:relative;
+      width:100%;
+      padding: 16px 16px 18px;
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap: 12px;
+    }
+    .mini{
+      font-size: 12px;
+      color: rgba(255,255,255,.78);
+      line-height:1.35;
+    }
+
+    .iconsRow{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 12px;
+    }
+    .iconChip{
+      display:flex; align-items:center; gap:10px;
+      padding: 10px 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+    }
+    .iconChip svg{ width: 22px; height: 22px; }
+    .iconChip span{ font-size: 13px; color: rgba(255,255,255,.86); }
+
+    .section{ margin-top: 16px; scroll-margin-top: 86px; }
+    .h2{
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 10px;
+      margin: 0 0 10px;
+      padding: 0 2px;
+    }
+    .h2 h2{ margin:0; font-size: 18px; letter-spacing: .2px; }
+    .hint{ font-size:12px; color: var(--muted2); }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 720px){ .grid2{ grid-template-columns: 1fr; } }
+
+    .event{
+      padding: 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      position:relative;
+      overflow:hidden;
+    }
+    .event::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(500px 160px at 20% 0%, rgba(255,255,255,.12), transparent 60%),
+        radial-gradient(520px 180px at 80% 40%, rgba(244,208,111,.14), transparent 60%);
+      opacity:.85;
+      pointer-events:none;
+    }
+    .event > *{ position:relative; }
+
+    .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size: 12px;
+      color: rgba(255,255,255,.84);
+      margin-bottom: 6px;
+    }
+    .tag span{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(90deg, #ffffff, var(--gold));
+      box-shadow: 0 0 16px rgba(244,208,111,.16);
+    }
+    .event-title{ margin:0; font-size: 16px; letter-spacing:.2px; }
+    .event-meta{ margin-top: 6px; color: var(--muted); font-size: 13px; line-height:1.55; }
+    .event-actions{ display:flex; gap:10px; margin-top: 10px; flex-wrap:wrap; }
+
+    /* gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 10px;
+    }
+    .gItem{
+      grid-column: span 4;
+      border-radius: 18px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      cursor:pointer;
+      position:relative;
+      min-height: 160px;
+    }
+    .gItem img{
+      width:100%; height:100%;
+      object-fit: cover;
+      display:block;
+      transform: scale(1.02);
+      transition: transform .20s ease, filter .20s ease;
+      filter: saturate(1.05) contrast(1.05);
+    }
+    .gItem:hover img{ transform: scale(1.06); filter: saturate(1.12) contrast(1.08); }
+    .gItem::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.00), rgba(0,0,0,.30));
+      pointer-events:none;
+    }
+    @media (max-width: 820px){
+      .gItem{ grid-column: span 6; min-height: 150px; }
+    }
+    @media (max-width: 520px){
+      .gItem{ grid-column: span 12; min-height: 220px; }
+    }
+
+    /* modal */
+    .modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      z-index: 1200;
+      background: rgba(0,0,0,.72);
+      backdrop-filter: blur(10px);
+      align-items:center;
+      justify-content:center;
+      padding: 16px;
+    }
+    .modal.open{ display:flex; }
+    .modalInner{
+      width:min(960px, 100%);
+      border-radius: 20px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(10,13,24,.85);
+      box-shadow: 0 22px 70px rgba(0,0,0,.55);
+      position:relative;
+    }
+    .modalInner img{
+      width:100%;
+      height:auto;
+      display:block;
+      max-height: 78vh;
+      object-fit: contain;
+      background: rgba(0,0,0,.25);
+    }
+    .modalBar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      color: rgba(255,255,255,.82);
+      font-size: 13px;
+      border-top: 1px solid rgba(255,255,255,.10);
+    }
+    .xbtn{
+      border:none;
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.88);
+      border: 1px solid rgba(255,255,255,.14);
+      padding: 8px 10px;
+      border-radius: 12px;
+      cursor:pointer;
+      font-weight: 800;
+    }
+
+    .shimmer{
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.60), rgba(244,208,111,.55), transparent);
+      opacity:.75;
+      filter: blur(.2px);
+      margin: 14px 0 12px;
+      position:relative;
+      overflow:hidden;
+    }
+    .shimmer::after{
+      content:"";
+      position:absolute;
+      top:-6px; left:-30%;
+      width:30%;
+      height:14px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent);
+      transform: skewX(-20deg);
+      animation: sweep 3.4s ease-in-out infinite;
+    }
+    @keyframes sweep{
+      0%{ left:-35%; opacity:.0; }
+      20%{ opacity:.9; }
+      55%{ opacity:.55; }
+      100%{ left:110%; opacity:0; }
+    }
+
+    .footer{
+      margin-top: 18px;
+      text-align:center;
+      color: var(--muted2);
+      font-size: 12px;
+      padding: 18px 6px;
+    }
+
+    .toast{
+      position:fixed;
+      left:50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      background: rgba(10,13,24,.82);
+      border: 1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.88);
+      padding: 10px 12px;
+      border-radius: 14px;
+      box-shadow: 0 18px 45px rgba(0,0,0,.45);
+      backdrop-filter: blur(14px);
+      display:none;
+      z-index:1300;
+      font-size: 13px;
+      max-width: calc(100vw - 28px);
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bokeh"></div>
+  <div class="noise"></div>
+  <div class="petals" id="petals"></div>
+  <canvas id="confetti"></canvas>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="badge" id="liveBadge" title="Geri sayım aktif">
+        <span class="dot"></span>
+        <span><strong>11.07.2026</strong> • Fatma & Sinan</span>
+      </div>
+
+      <nav class="nav" aria-label="sayfa menüsü">
+        <a href="#program">Program</a>
+        <a href="#detaylar">Detaylar</a>
+        <a href="#galeri">Foto</a>
+        <a href="#rsvp">Katılım</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="hero" id="top">
+      <div class="hero-grid">
+        <div class="card card-pad">
+          <div class="pill">🤍 <strong>Düğün Davetiyesi</strong> • beyaz ışık + çiçek + bol mutluluk</div>
+
+          <div class="names">Fatma Çoban<br/>Sinan Şengür</div>
+
+          <p class="subtitle">
+            Nikahımızda “evet”imize, akşam da kına & düğün eğlencemize bekleriz. ✨<br/>
+            (Not: “Çok şık ama rahat” teması serbest 😄)
+          </p>
+
+          <div class="iconsRow" aria-label="Düğün ikonları">
+            <div class="iconChip" title="Gelin & Damat">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M8 9c1.5 0 2.7-1.2 2.7-2.7S9.5 3.6 8 3.6 5.3 4.8 5.3 6.3 6.5 9 8 9Z" stroke="rgba(255,255,255,.9)" stroke-width="1.6"/>
+                <path d="M16 9c1.5 0 2.7-1.2 2.7-2.7S17.5 3.6 16 3.6s-2.7 1.2-2.7 2.7S14.5 9 16 9Z" stroke="rgba(255,255,255,.9)" stroke-width="1.6"/>
+                <path d="M4.8 20c.6-3.6 2.6-6 5.2-6s4.6 2.4 5.2 6" stroke="rgba(244,208,111,.95)" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M8.5 14.2l1.5 1.6 1.5-1.6" stroke="rgba(255,255,255,.8)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M12.6 20c.6-3.6 2.6-6 5.2-6s4.6 2.4 5.2 6" stroke="rgba(244,208,111,.95)" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+              <span>Gelin–damat</span>
+            </div>
+
+            <div class="iconChip" title="Pasta">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M8 10h8v2H8v-2Z" fill="rgba(255,255,255,.85)"/>
+                <path d="M7 12h10v7a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-7Z" stroke="rgba(244,208,111,.95)" stroke-width="1.6"/>
+                <path d="M10 6c0 1-1 1.3-1 2.2 0 .8.6 1.5 1.5 1.5S12 9 12 8c0-1-1-1.3-1-2.2C11 5 11.4 4 12 3c.6 1 .9 2 .9 2.8 0 .9-1 1.2-1 2.2 0 1 .6 1.7 1.5 1.7S15 9 15 8c0-.9-1-1.2-1-2.2C14 5 14.4 4 15 3" stroke="rgba(255,255,255,.85)" stroke-width="1.3" stroke-linecap="round"/>
+                <path d="M7 16c1.3-1 2.6-1 4 0s2.7 1 4 0 2.7-1 4 0" stroke="rgba(255,106,162,.85)" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <span>Pasta</span>
+            </div>
+
+            <div class="iconChip" title="Süslü araba">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 14l1.2-3.2A2 2 0 0 1 9.1 9.5h5.8a2 2 0 0 1 1.9 1.3L18 14" stroke="rgba(255,255,255,.85)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M5.5 14h13a1.5 1.5 0 0 1 1.5 1.5V17a1 1 0 0 1-1 1h-1" stroke="rgba(244,208,111,.95)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M6 18H5a1 1 0 0 1-1-1v-1.5A1.5 1.5 0 0 1 5.5 14" stroke="rgba(244,208,111,.95)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M8 18.2a1.7 1.7 0 1 0 0-.1" stroke="rgba(255,255,255,.9)" stroke-width="1.6"/>
+                <path d="M16 18.2a1.7 1.7 0 1 0 0-.1" stroke="rgba(255,255,255,.9)" stroke-width="1.6"/>
+                <path d="M12 8c.8-1.2 1.9-1.9 3.3-2.1" stroke="rgba(255,106,162,.85)" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M12 8c-.8-1.2-1.9-1.9-3.3-2.1" stroke="rgba(255,106,162,.85)" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <span>Süslü araba</span>
+            </div>
+          </div>
+
+          <div class="shimmer"></div>
+
+          <div class="row">
+            <div class="pill">🗓️ <strong>11 Temmuz 2026</strong></div>
+            <div class="pill">💍 Nikah: <strong>15:30</strong></div>
+            <div class="pill">🎊 Kına & Düğün: <strong>18:00</strong></div>
+          </div>
+
+          <div class="countdown" aria-label="Geri sayım">
+            <div class="tile"><div class="num" id="cdDays">—</div><div class="lab">Gün</div></div>
+            <div class="tile"><div class="num" id="cdHours">—</div><div class="lab">Saat</div></div>
+            <div class="tile"><div class="num" id="cdMins">—</div><div class="lab">Dakika</div></div>
+            <div class="tile"><div class="num" id="cdSecs">—</div><div class="lab">Saniye</div></div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#program" id="btnConfetti">🤍 Program & Mekan</a>
+            <button class="btn btn-ghost" id="btnCalendar" type="button">📅 Takvime Ekle</button>
+            <button class="btn btn-ghost" id="btnShare" type="button">📲 Paylaş</button>
+          </div>
+        </div>
+
+        <div class="card photoCard" aria-label="Kapak fotoğrafı">
+          <img id="heroImg" src="assets/p1.jpg" alt="Fatma & Sinan" onerror="this.style.display='none';" />
+          <div class="photoBadge">
+            <div class="mini">
+              <div style="font-weight:900; font-size:14px; color:rgba(255,255,255,.94);">Beyaz ışıklar, çiçekler… ✨</div>
+              <div style="margin-top:4px; color:rgba(255,255,255,.72);">“Bu hikâyenin en güzel sahnesi.”</div>
+            </div>
+            <div class="pill" style="background:rgba(255,255,255,.06)">💐 #Fatma&Sinan</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="program">
+      <div class="h2">
+        <h2>Program</h2>
+        <div class="hint">Tıkla → harita açılır</div>
+      </div>
+
+      <div class="grid2">
+        <article class="event">
+          <div class="tag"><span></span> Nikah</div>
+          <h3 class="event-title">15:30 • Bahçelievler Belediyesi Kongre Merkezi ve Nikah Sarayı</h3>
+          <div class="event-meta">
+            Resmî “Evet!” anı 💍<br/>
+            <em>Minik not:</em> 15 dk erken gelmek foto/oturma için rahat.
+          </div>
+          <div class="event-actions">
+            <a class="btn btn-ghost" target="_blank" rel="noopener"
+               href="https://www.google.com.tr/search?client=safari&hs=h8Op&sca_esv=ad335200c38ab265&hl=tr-tr&sxsrf=ANbL-n4UzBwA_nfZi-X59-jyzHZooicXaA:1771847240305&kgmid=/g/11sdn06l7r&q=Bah%C3%A7elievler+Belediyesi+Kongre+Merkezi+ve+Nikah+Saray%C4%B1&shem=rimspc,rimspiosc,shrtn&shndl=30&source=sh/x/loc/act/m1/3&kgs=1f83b8649e091cf0&utm_source=rimspc,rimspiosc,shrtn,sh/x/loc/act/m1/3">
+              🗺️ Haritada Aç
+            </a>
+            <button class="btn btn-ghost" type="button" data-copy="Nikah: 15:30 - Bahçelievler Belediyesi Kongre Merkezi ve Nikah Sarayı">
+              📋 Kopyala
+            </button>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="tag"><span></span> Kına & Düğün</div>
+          <h3 class="event-title">18:00 • Mekan Konumu (Maps)</h3>
+          <div class="event-meta">
+            Kına giriş ✨ ardından düğün & dans 💃🕺<br/>
+            “Pasta kesimi” ve “gelin–damat anonsu” burada! 🎂🤍
+          </div>
+          <div class="event-actions">
+            <a class="btn btn-ghost" target="_blank" rel="noopener"
+               href="https://www.google.com/maps?q=41.0251579284668,28.836454391479492&z=17&hl=en">
+              🗺️ Konuma Git
+            </a>
+            <button class="btn btn-ghost" type="button" data-copy="Kına & Düğün: 18:00 - Konum: https://www.google.com/maps?q=41.0251579284668,28.836454391479492&z=17&hl=en">
+              📋 Kopyala
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="detaylar">
+      <div class="h2">
+        <h2>Detaylar</h2>
+        <div class="hint">Düğün “pro” ipuçları</div>
+      </div>
+
+      <div class="grid2">
+        <div class="event">
+          <div class="tag"><span></span> Hikâyemiz</div>
+          <h3 class="event-title">Mini Timeline</h3>
+          <div class="event-meta">
+            • Tanıştık → “bu o” dedik 💫<br/>
+            • Nişan → aileler tanıştı 🤍<br/>
+            • 11.07.2026 → sonsuzluk modu: AÇIK ♾️<br/><br/>
+            <small>İstersen burayı 3-4 cümle gerçek hikâyeye göre birlikte düzenleriz.</small>
+          </div>
+        </div>
+
+        <div class="event">
+          <div class="tag"><span></span> Dress Code</div>
+          <h3 class="event-title">Beyaz Işık + Zarif</h3>
+          <div class="event-meta">
+            Açık tonlar / pastel / şık siyah çok yakışır.<br/>
+            Kına için küçük bir <strong>kırmızı dokunuş</strong> (şal, ruj, aksesuar) isteyenlere serbest ❤️
+          </div>
+        </div>
+
+        <div class="event">
+          <div class="tag"><span></span> Ulaşım & Otopark</div>
+          <h3 class="event-title">Rahat Gel, Rahat Eğlen</h3>
+          <div class="event-meta">
+            • Nikah: mümkünse erken gel → trafik sürpriz yapmasın.<br/>
+            • Mekan: konuma göre navigasyonla gelmek en rahatı.<br/>
+            • Otopark: mekana gelince görevliye sor, yönlendiriyorlar.
+          </div>
+        </div>
+
+        <div class="event">
+          <div class="tag"><span></span> Hediye Notu</div>
+          <h3 class="event-title">En büyük hediye: siz 🫶</h3>
+          <div class="event-meta">
+            “Gelmeniz yeter” ama bir not bırakmak isterseniz: güzel dilekler + fotoğraf 🥹🤍
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="galeri">
+      <div class="h2">
+        <h2>Foto Galeri</h2>
+        <div class="hint">Dokun → büyüt</div>
+      </div>
+
+      <div class="card card-pad">
+        <p class="subtitle" style="margin-top:0;">
+          Buraya attığın tüm fotoları ekledim mantık olarak: <strong>assets/p1.jpg ...</strong><br/>
+          (Yüklediğin sayıya göre listeyi güncelleyeceğiz.)
+        </p>
+
+        <div class="gallery" id="gallery"></div>
+
+        <div class="event" style="margin-top:12px;">
+          <div class="tag"><span></span> Mini sürpriz</div>
+          <h3 class="event-title">“Anı Köşesi” fikri</h3>
+          <div class="event-meta">
+            Mekanda bir köşe: beyaz tül + ışık zinciri + çiçek + “Fatma & Sinan • 11.07.2026” yazısı.
+            Herkes foto çeksin, QR ile siteye geri dönsün ✨
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rsvp">
+      <div class="h2">
+        <h2>Katılım (RSVP)</h2>
+        <div class="hint">1 tıkla WhatsApp’a düşsün</div>
+      </div>
+
+      <div class="card card-pad">
+        <p class="subtitle" style="margin-top:0;">
+          Gelip gelemeyeceğinizi yazarsanız çok seviniriz. Bir de “<strong>hangi şarkıda dans edelim?</strong>” önerisi bırakın 🎶
+        </p>
+
+        <div class="grid2">
+          <div class="event">
+            <div class="tag"><span></span> Hızlı mesaj</div>
+            <h3 class="event-title">WhatsApp’a Hazır Mesaj</h3>
+            <div class="event-meta">Butona basınca mesaj metni hazır gelir. Numara kısmını aşağıdan değiştir.</div>
+            <div class="event-actions">
+              <a class="btn btn-primary" id="btnWaYes" href="#" rel="noopener">✅ Geliyorum</a>
+              <a class="btn btn-ghost" id="btnWaMaybe" href="#" rel="noopener">🤔 Net değil</a>
+              <a class="btn btn-ghost" id="btnWaNo" href="#" rel="noopener">❌ Gelemiyorum</a>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="tag"><span></span> DJ’ye Not</div>
+            <h3 class="event-title">Şarkı önerisi bırak 🎵</h3>
+            <div class="event-meta">Aşağıya yaz → “Gönder” de → WhatsApp’a eklesin.</div>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+              <input id="songInput" type="text" inputmode="text" placeholder="Örn: Sezen Aksu - Gülümse"
+                style="flex:1 1 180px; min-width: 160px; padding: 12px 12px; border-radius: 14px;
+                border: 1px solid rgba(255,255,255,.14); background: rgba(0,0,0,.18);
+                color: rgba(255,255,255,.9); outline:none;"
+              />
+              <button class="btn btn-primary" id="btnSong" type="button">🎶 Gönder</button>
+            </div>
+
+            <div class="event-meta" style="margin-top:10px; color: rgba(255,255,255,.62);">
+              <small>Not: WhatsApp numarasını kodda <strong>WHATSAPP_NUMBER</strong> alanından güncelle.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      Sevgiyle 🤍 • Fatma Çoban & Sinan Şengür • <span id="yearNow"></span>
+    </div>
+  </main>
+
+  <!-- Modal for gallery -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modalInner">
+      <img id="modalImg" src="" alt="Fotoğraf" />
+      <div class="modalBar">
+        <div id="modalLabel">Foto</div>
+        <button class="xbtn" id="modalClose" type="button">Kapat ✕</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // =========================
+    // CONFIG
+    // =========================
+    const WEDDING_DATE_LOCAL = "2026-07-11T15:30:00"; // Nikah başlangıcı (yerel saat)
+    const NIKAH_TITLE = "Nikah • Fatma Çoban & Sinan Şengür";
+    const NIKAH_LOCATION = "Bahçelievler Belediyesi Kongre Merkezi ve Nikah Sarayı";
+    const NIKAH_URL = "https://www.google.com.tr/search?client=safari&hs=h8Op&sca_esv=ad335200c38ab265&hl=tr-tr&sxsrf=ANbL-n4UzBwA_nfZi-X59-jyzHZooicXaA:1771847240305&kgmid=/g/11sdn06l7r&q=Bah%C3%A7elievler+Belediyesi+Kongre+Merkezi+ve+Nikah+Saray%C4%B1&shem=rimspc,rimspiosc,shrtn&shndl=30&source=sh/x/loc/act/m1/3&kgs=1f83b8649e091cf0&utm_source=rimspc,rimspiosc,shrtn,sh/x/loc/act/m1/3";
+
+    const KINA_TITLE = "Kına & Düğün • Fatma Çoban & Sinan Şengür";
+    const KINA_START_LOCAL = "2026-07-11T18:00:00";
+    const KINA_LOCATION = "Konum (Google Maps)";
+    const KINA_URL = "https://www.google.com/maps?q=41.0251579284668,28.836454391479492&z=17&hl=en";
+
+    // WhatsApp: numarayı E.164 formatında gir (ör: 9053xxxxxxxxx)
+    const WHATSAPP_NUMBER = "905000000000"; // <-- BURAYI DÜZENLE
+
+    // FOTO LİSTESİ: assets klasörüne p1.jpg, p2.jpg ... diye koy.
+    // Kaç foto eklediysen burada da o kadar tut.
+    const PHOTO_LIST = [
+      {src:"assets/p1.jpg", label:"🤍"},
+      {src:"assets/p2.jpg", label:"✨"},
+      {src:"assets/p3.jpg", label:"💍"},
+      {src:"assets/p4.jpg", label:"💐"},
+      {src:"assets/p5.jpg", label:"🎞️"},
+      {src:"assets/p6.jpg", label:"🤍"},
+      {src:"assets/p7.jpg", label:"✨"},
+      {src:"assets/p8.jpg", label:"💍"},
+      {src:"assets/p9.jpg", label:"💐"},
+      {src:"assets/p10.jpg", label:"🤍"},
+    ];
+
+    // =========================
+    // HELPERS
+    // =========================
+    const $ = (s)=>document.querySelector(s);
+    const toastEl = $("#toast");
+
+    function toast(msg){
+      toastEl.textContent = msg;
+      toastEl.style.display = "block";
+      clearTimeout(toastEl._t);
+      toastEl._t = setTimeout(()=> toastEl.style.display="none", 2200);
+    }
+
+    function pad(n){ return String(n).padStart(2,"0"); }
+
+    function toICSDate(dt){
+      const y = dt.getUTCFullYear();
+      const m = pad(dt.getUTCMonth()+1);
+      const d = pad(dt.getUTCDate());
+      const hh = pad(dt.getUTCHours());
+      const mm = pad(dt.getUTCMinutes());
+      const ss = pad(dt.getUTCSeconds());
+      return `${y}${m}${d}T${hh}${mm}${ss}Z`;
+    }
+
+    function downloadICS({title, startLocal, durationMinutes, location, url, description}){
+      const start = new Date(startLocal);
+      const end = new Date(start.getTime() + durationMinutes*60*1000);
+      const now = new Date();
+
+      const ics =
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//FatmaSinan//Davetiye//TR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:${crypto?.randomUUID ? crypto.randomUUID() : (Date.now()+"@fatmasinan")}
+DTSTAMP:${toICSDate(now)}
+DTSTART:${toICSDate(start)}
+DTEND:${toICSDate(end)}
+SUMMARY:${title}
+LOCATION:${location}
+DESCRIPTION:${description}\\n${url}
+URL:${url}
+END:VEVENT
+END:VCALENDAR`;
+
+      const blob = new Blob([ics], {type:"text/calendar;charset=utf-8"});
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `${title.replace(/[^\wğüşöçıİĞÜŞÖÇ ]/gi,"").trim().slice(0,30)}.ics`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(()=>URL.revokeObjectURL(a.href), 1500);
+      toast("Takvim dosyası indirildi ✅");
+    }
+
+    async function copyText(text){
+      try{
+        await navigator.clipboard.writeText(text);
+        toast("Kopyalandı 📋");
+      }catch(e){
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+        toast("Kopyalandı 📋");
+      }
+    }
+
+    // =========================
+    // COUNTDOWN
+    // =========================
+    const target = new Date(WEDDING_DATE_LOCAL);
+    function tick(){
+      const now = new Date();
+      let diff = Math.max(0, target - now);
+
+      const s = Math.floor(diff/1000);
+      const days = Math.floor(s / 86400);
+      const hours = Math.floor((s % 86400) / 3600);
+      const mins = Math.floor((s % 3600) / 60);
+      const secs = s % 60;
+
+      $("#cdDays").textContent = days;
+      $("#cdHours").textContent = pad(hours);
+      $("#cdMins").textContent = pad(mins);
+      $("#cdSecs").textContent = pad(secs);
+
+      if(diff === 0){
+        $("#liveBadge").title = "Bugün o gün! 🎉";
+      }
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    $("#yearNow").textContent = new Date().getFullYear();
+    document.documentElement.style.scrollBehavior = "smooth";
+
+    // =========================
+    // PETALS
+    // =========================
+    const petals = $("#petals");
+    const PETAL_COUNT = 14;
+    for(let i=0;i<PETAL_COUNT;i++){
+      const p = document.createElement("div");
+      p.className = "petal";
+      const left = Math.random()*100;
+      const dur = 8 + Math.random()*9;
+      const delay = Math.random()*-10;
+      const size = 10 + Math.random()*12;
+      p.style.left = left + "vw";
+      p.style.animationDuration = dur + "s";
+      p.style.animationDelay = delay + "s";
+      p.style.width = size + "px";
+      p.style.height = (size*0.72) + "px";
+      p.style.opacity = (0.35 + Math.random()*0.5).toFixed(2);
+      petals.appendChild(p);
+    }
+
+    // =========================
+    // HERO IMG rotates between photos
+    // =========================
+    const heroImg = $("#heroImg");
+    let heroIdx = 0;
+    function setHero(){
+      if(!PHOTO_LIST.length) return;
+      heroIdx = (heroIdx + 1) % PHOTO_LIST.length;
+      heroImg.src = PHOTO_LIST[heroIdx].src;
+    }
+    setInterval(setHero, 4500);
+
+    // =========================
+    // BUTTONS
+    // =========================
+    $("#btnCalendar").addEventListener("click", ()=>{
+      downloadICS({
+        title: NIKAH_TITLE,
+        startLocal: WEDDING_DATE_LOCAL,
+        durationMinutes: 60,
+        location: NIKAH_LOCATION,
+        url: NIKAH_URL,
+        description: "Nikah töreni. 15:30'da başlıyor. 15 dk erken gelmeniz harika olur."
+      });
+      setTimeout(()=>{
+        downloadICS({
+          title: KINA_TITLE,
+          startLocal: KINA_START_LOCAL,
+          durationMinutes: 240,
+          location: KINA_LOCATION,
+          url: KINA_URL,
+          description: "Kına & Düğün. 18:00'de başlıyor. Bol dans!"
+        });
+      }, 600);
+    });
+
+    $("#btnShare").addEventListener("click", async ()=>{
+      const shareText =
+`Fatma Çoban & Sinan Şengür davetiyesi 🤍
+Tarih: 11.07.2026
+Nikah: 15:30
+Kına&Düğün: 18:00`;
+      if(navigator.share){
+        try{
+          await navigator.share({ title: "Fatma & Sinan Davetiyesi", text: shareText, url: location.href });
+        }catch(e){
+          await copyText(location.href);
+        }
+      }else{
+        await copyText(location.href);
+      }
+    });
+
+    document.addEventListener("click", (e)=>{
+      const b = e.target.closest("[data-copy]");
+      if(!b) return;
+      copyText(b.getAttribute("data-copy"));
+    });
+
+    function waLink(message){
+      const msg = encodeURIComponent(message);
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+    }
+    const baseMsg =
+`Merhaba! Fatma Çoban & Sinan Şengür daveti için:
+Tarih: 11.07.2026
+Nikah: 15:30
+Kına & Düğün: 18:00`;
+
+    $("#btnWaYes").href   = waLink(`${baseMsg}\n✅ Geliyorum! İsim: ...\n🎵 Dans şarkım: ...`);
+    $("#btnWaMaybe").href = waLink(`${baseMsg}\n🤔 Henüz net değil. İsim: ...\n🎵 Dans şarkım: ...`);
+    $("#btnWaNo").href    = waLink(`${baseMsg}\n❌ Maalesef gelemiyorum. İsim: ...`);
+
+    $("#btnSong").addEventListener("click", ()=>{
+      const song = ($("#songInput").value || "").trim();
+      const msg = `${baseMsg}\n🎵 DJ'ye not: ${song || "(şarkı yazmayı unuttum 🙈)"}\nİsim: ...`;
+      window.open(waLink(msg), "_blank", "noopener");
+    });
+
+    // =========================
+    // GALLERY render + modal
+    // =========================
+    const gallery = $("#gallery");
+    const modal = $("#modal");
+    const modalImg = $("#modalImg");
+    const modalLabel = $("#modalLabel");
+    const modalClose = $("#modalClose");
+
+    function addGalleryItem(photo, idx){
+      const div = document.createElement("div");
+      div.className = "gItem";
+      div.innerHTML = `<img src="${photo.src}" alt="Fotoğraf ${idx+1}" loading="lazy" />`;
+      div.addEventListener("click", ()=>{
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden","false");
+        modalImg.src = photo.src;
+        modalLabel.textContent = `Fotoğraf ${idx+1} ${photo.label || ""}`.trim();
+      });
+      gallery.appendChild(div);
+    }
+
+    PHOTO_LIST.forEach((p,i)=> addGalleryItem(p,i));
+
+    function closeModal(){
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden","true");
+      modalImg.src = "";
+    }
+    modalClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e)=>{
+      if(e.target === modal) closeModal();
+    });
+    window.addEventListener("keydown", (e)=>{
+      if(e.key === "Escape") closeModal();
+    });
+
+    // =========================
+    // CONFETTI (lightweight)
+    // =========================
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext("2d");
+
+    function safeResize(){
+      ctx.setTransform(1,0,0,1,0,0);
+      canvas.width = window.innerWidth * devicePixelRatio;
+      canvas.height = window.innerHeight * devicePixelRatio;
+      ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+    }
+    safeResize();
+    window.addEventListener("resize", safeResize);
+
+    function rand(min,max){ return Math.random()*(max-min)+min; }
+    const colors = ["#ffffff","#f4d06f","#fff2cf","#ffb7d1","#e9fff8"];
+
+    let pieces = [];
+    function burst(n=110){
+      const startX = window.innerWidth/2;
+      const startY = window.innerHeight*0.22;
+      for(let i=0;i<n;i++){
+        pieces.push({
+          x: startX + rand(-40,40),
+          y: startY + rand(-20,20),
+          vx: rand(-6,6),
+          vy: rand(-12,-4),
+          g: rand(0.18,0.32),
+          s: rand(3,7),
+          r: rand(0,Math.PI),
+          vr: rand(-0.18,0.18),
+          c: colors[(Math.random()*colors.length)|0],
+          life: rand(70,125)
+        });
+      }
+    }
+
+    function animate(){
+      ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+      for(let i=pieces.length-1;i>=0;i--){
+        const p = pieces[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += p.g;
+        p.r += p.vr;
+        p.life -= 1;
+
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.r);
+        ctx.globalAlpha = Math.max(0, Math.min(1, p.life/125));
+        ctx.fillStyle = p.c;
+        ctx.fillRect(-p.s/2, -p.s/2, p.s, p.s*0.86);
+        ctx.restore();
+
+        if(p.life <= 0 || p.y > window.innerHeight + 40) pieces.splice(i,1);
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    document.getElementById("btnConfetti").addEventListener("click", ()=> burst(150));
+    setTimeout(()=> burst(90), 650);
+
+    if(WHATSAPP_NUMBER === "905000000000"){
+      setTimeout(()=> toast("Not: WhatsApp numarasını kodda güncelle 🙂"), 1400);
+    }
+  </script>
+</body>
+</html>
